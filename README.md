@@ -1,5 +1,5 @@
 # Raspberry Pi doorbell
-This is a doorbell system that reads off `sound.txt` and plays it when GPIO pins are connected.
+This is a doorbell system that reads off `sound.txt` and plays its specified sound file when GPIO pins are connected. Sounds are played using `omxplayer`.
 
-Compiling for Pi:
-`GOOS=linux GOARCH=arm GOARM=6 go build`
+Running for Pi:
+`$ python main.py`
