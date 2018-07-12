@@ -12,7 +12,7 @@ def callback(channel):
 	print "Press detected! Doorbell..."
 	sound.play_sound(path.realpath(path.join("./sounds", choice(listdir('./sounds')))))
 
-GPIO.add_event_detect(11, GPIO.RISING, callback=callback, bouncetime=300)
+GPIO.add_event_detect(11, GPIO.RISING, callback=callback, bouncetime=1500)
 
 while True:
 	pass
