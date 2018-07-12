@@ -10,7 +10,9 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 def callback(channel):
 	print "Press detected! Doorbell..."
-	sound.play_sound(path.realpath(path.join("./sounds", choice(listdir('./sounds')))))
+	music_files = listdir('./sounds')
+	music_file = choice(filter(lambda x: x != ".gitignore", music_files))
+	sound.play_sound(path.realpath(path.join("./sounds", music_file)))
 
 GPIO.add_event_detect(11, GPIO.RISING, callback=callback, bouncetime=1500)
 
