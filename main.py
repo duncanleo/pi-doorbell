@@ -7,9 +7,11 @@ GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-print "Starting the wait"
+def callback(channel):
+	print "Press detected! Doorbell..."
+	sound.play_sound(path.realpath(path.join("./sounds", storage.get_sound_file())))
+
+GPIO.add_event_detect(11, GPIO.RISING, callback=callback, bouncetime=300)
+
 while True:
-	if (GPIO.input(11) == False):
-		print "Press detected! Doorbell..."
-		sound.play_sound(path.realpath(path.join("./sounds", storage.get_sound_file())))
-	sleep(0.2)
+	pass
