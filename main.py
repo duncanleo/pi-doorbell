@@ -24,6 +24,6 @@ while True:
 		sound.play_sound(path.realpath(path.join("./sounds", music_file)))
 
 		if environ['REQUEST_URL']:
-			req = urllib.Request(environ['REQUEST_URL'], post_data)
+			req = urllib2.Request(environ['REQUEST_URL'], post_data)
 			urllib2.urlopen(req).read()
 	sleep(0.2)
