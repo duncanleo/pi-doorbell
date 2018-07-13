@@ -8,6 +8,7 @@ GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+<<<<<<< HEAD
 def callback(channel):
 	print "Press detected! Doorbell..."
 	music_files = listdir('./sounds')
@@ -16,5 +17,11 @@ def callback(channel):
 
 GPIO.add_event_detect(11, GPIO.RISING, callback=callback, bouncetime=1500)
 
+=======
+print "Starting the wait"
+>>>>>>> parent of a30c3b2... use event callbacks
 while True:
-	pass
+	if (GPIO.input(11) == False):
+		print "Press detected! Doorbell..."
+		sound.play_sound(path.realpath(path.join("./sounds", storage.get_sound_file())))
+	sleep(0.2)
